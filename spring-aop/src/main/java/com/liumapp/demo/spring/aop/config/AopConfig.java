@@ -1,5 +1,7 @@
 package com.liumapp.demo.spring.aop.config;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author liumapp
  * @file AopConfig.java
@@ -7,6 +9,7 @@ package com.liumapp.demo.spring.aop.config;
  * @homepage http://www.liumapp.com
  * @date 5/18/18
  */
+@Component
 public class AopConfig {
 
 
