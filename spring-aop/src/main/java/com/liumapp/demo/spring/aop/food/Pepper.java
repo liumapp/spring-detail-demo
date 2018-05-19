@@ -1,5 +1,7 @@
 package com.liumapp.demo.spring.aop.food;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author liumapp
  * @file Pepper.java
@@ -7,6 +9,7 @@ package com.liumapp.demo.spring.aop.food;
  * @homepage http://www.liumapp.com
  * @date 5/18/18
  */
+@Component
 public class Pepper implements Food {
 
     @Override

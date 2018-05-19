@@ -1,7 +1,10 @@
 package com.liumapp.demo.spring.aop.time;
 
 import com.liumapp.demo.spring.aop.config.Config;
+import com.liumapp.demo.spring.aop.human.Human;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,6 +19,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = Config.class)
 public class TimeAopTest {
 
-    
+    @Autowired
+    private Human human;
+
+    @Test
+    public void testAop () {
+        human.eat();
+    }
 
 }
