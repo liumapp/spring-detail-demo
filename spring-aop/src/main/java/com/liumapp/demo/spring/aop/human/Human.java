@@ -11,4 +11,8 @@ public interface Human {
 
     public void eat ();
 
+    public String getLiked ();
+
+    public String sayNo () throws Exception ;
+
 }

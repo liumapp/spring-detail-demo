@@ -17,8 +17,14 @@ public class TimeAopMain {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(Config.class);
         context.refresh();
-        Human human = context.getBean(Human.class);
-        human.eat();
+        try {
+            Human human = context.getBean(Human.class);
+            human.eat();
+            String likeWhat = human.getLiked();
+            human.sayNo();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         context.close();
     }
 

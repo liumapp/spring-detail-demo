@@ -1,6 +1,7 @@
 package com.liumapp.demo.spring.aop.time;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,9 @@ public class TimeAop {
 
     @Pointcut("execution(* com.liumapp.demo.spring.aop.human.Hunaness.getLiked(..))")
     public void likeWhat () {}
+
+    @Pointcut("execution(* com.liumapp.demo.spring.aop.human.Hunaness.*(..))")
+    public void all () {}
 
     @Before("eat()")
     public void beginTime (JoinPoint joinPoint) {
@@ -53,9 +57,9 @@ public class TimeAop {
      * 后置异常通知：在方法抛出异常之后执行,可以访问到异常信息,且可以指定出现特定异常信息时执行代码
      * @param joinPoint
      */
-    @AfterThrowing(value = "pointcut1()",
+    @AfterThrowing(value = "all()",
             throwing="exception")
-    public void afterThrowing(JoinPoint joinPoint, Exception /**NullPointerException*/ exception){
+    public void afterThrowing(JoinPoint joinPoint, Exception exception){
 
         String methodName = joinPoint.getSignature().getName();
         System.out.println(this.getClass().getSimpleName()+ " afterThrowing execute:"+methodName+" occurs exception:"+exception);
@@ -64,7 +68,7 @@ public class TimeAop {
     /**
      * 环绕通知, 围绕着方法执行
      */
-    @Around(value = "pointcut1()")
+    @Around(value = "all()")
     public Object around(ProceedingJoinPoint joinPoint){
 
         String methodName = joinPoint.getSignature().getName();

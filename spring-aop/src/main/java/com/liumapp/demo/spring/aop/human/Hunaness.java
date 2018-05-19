@@ -17,8 +17,14 @@ public class Hunaness implements Human {
         food.beEaten();
     }
 
+    @Override
     public String getLiked () {
         return "something like pepper";
+    }
+
+    @Override
+    public String sayNo () throws Exception {
+        throw new Exception("Exception from hunaness");
     }
 
 }
