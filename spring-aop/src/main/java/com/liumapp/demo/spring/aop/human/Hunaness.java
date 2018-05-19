@@ -17,4 +17,8 @@ public class Hunaness implements Human {
         food.beEaten();
     }
 
+    public String getLiked () {
+        return "something like pepper";
+    }
+
 }
