@@ -1,5 +1,6 @@
 package com.liumapp.demo.spring.aop.time;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -25,13 +26,17 @@ public class TimeAop {
     public void eat () {}
 
     @Before("eat()")
-    public void beginTime () {
-        System.out.println("eat begin at : " + new Date());
+    public void beginTime (JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(methodName + " begin at : " + new Date());
     }
 
     @After("eat()")
-    public void afterTime () {
-        System.out.println("eat end at : " + new Date());
+    public void afterTime (JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(methodName + " end at : " + new Date());
     }
+
+    
 
 }
